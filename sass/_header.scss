@@ -3,7 +3,7 @@
   height: 10vh;
   display: grid;
   grid-template-columns: 2fr 5fr 2fr;
-  grid-template-rows: 12fr;
+  grid-template-rows: 9fr;
   background-color: #333;
   color: #fff;
 
@@ -20,7 +20,7 @@
     justify-self: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: normal;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -29,11 +29,11 @@
 }
 
 .hamburger {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 40px;
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 5px;
+  top: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -41,8 +41,22 @@
   border: none;
 
   &__item {
-    width: 50px;
-    height: 1px;
+    width: 30px;
+    height: 2px;
+    border-radius: 2px;
     background-color: #fff;
+  }
+}
+
+@media (min-width: 576px) {
+  .header {
+    &__logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    &__heading {
+      font-size: 2.2rem;
+    }
   }
 }

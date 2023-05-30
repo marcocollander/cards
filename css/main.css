@@ -18,7 +18,7 @@
   height: 10vh;
   display: grid;
   grid-template-columns: 2fr 5fr 2fr;
-  grid-template-rows: 12fr;
+  grid-template-rows: 9fr;
   background-color: #333;
   color: #fff;
 }
@@ -34,7 +34,7 @@
   justify-self: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: normal;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .menu {
@@ -42,11 +42,11 @@
 }
 
 .hamburger {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 40px;
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 5px;
+  top: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -54,27 +54,37 @@
   border: none;
 }
 .hamburger__item {
-  width: 50px;
-  height: 1px;
+  width: 30px;
+  height: 2px;
+  border-radius: 2px;
   background-color: #fff;
 }
 
+@media (min-width: 576px) {
+  .header__logo {
+    width: 60px;
+    height: 60px;
+  }
+  .header__heading {
+    font-size: 2.2rem;
+  }
+}
 .content {
   margin-top: 50px;
 }
 
 .wrapper {
-  width: 100%;
-  height: 200px;
-  display: grid;
-  grid-template-columns: 3fr 3fr 3fr;
-  grid-template-rows: 9fr;
+  display: flex;
+  justify-content: center;
 }
 .wrapper__card {
   width: 100px;
-  justify-self: center;
-  align-self: center;
-  border-radius: 5px;
+  aspect-ratio: 1/1.5;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.wrapper__card:nth-of-type(2) {
+  margin: 0 5px;
 }
 
 .rotate {
@@ -86,17 +96,13 @@
 }
 
 .btns {
-  width: 100%;
-  height: 20vh;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .btns__btn {
-  width: 100px;
-  padding: 10px 30px;
-  border-radius: 5px;
-  text-align: center;
+  margin-top: 40px;
+  padding: 7px 15px;
+  letter-spacing: 1px;
 }
 
 @keyframes rotate {
@@ -113,5 +119,46 @@
   }
   to {
     transform: rotateY(360deg);
+  }
+}
+@media (min-width: 576px) {
+  .wrapper {
+    justify-content: center;
+  }
+  .wrapper__card {
+    width: 130px;
+    border: 2px solid black;
+  }
+  .btns__btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 768px) {
+  .wrapper__card {
+    width: 160px;
+    border-radius: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .wrapper__card {
+    width: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper__card {
+    width: 240px;
+  }
+  .btns__btn {
+    padding: 15px 35px;
+    font-size: 2rem;
+    letter-spacing: 3px;
+  }
+}
+@media (min-width: 1400px) {
+  .wrapper__card {
+    width: 300px;
   }
 }/*# sourceMappingURL=main.css.map */
