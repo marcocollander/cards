@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gra w trzy karty</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <header class="header">
+    <img class="header__logo" src="./images/logo.jpg" alt="logo">
+    <h1 class="header__heading">Gra w trzy karty</h1>
+    <nav class="menu">
+      <ul class="menu__list">
+        <li class="menu__item"><a href="/" class="menu__link">Strona domowa</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">O mnie</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">Blog</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">Kontakt</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger">
+      <span class="hamburger__item"></span>
+      <span class="hamburger__item"></span>
+      <span class="hamburger__item"></span>
+    </button>
+  </header>
+  <main class="content">
+    <div class="wrapper">
+      <img class="wrapper__card rotate" src="images/dama-karo.png" alt="dama-karo">
+      <img class="wrapper__card rotate" src="images/dama-pik.png" alt="dama-karo">
+      <img class="wrapper__card rotate" src="images/dama-kier.png" alt="dama-karo">
+    </div>
+
+    <div class="btns">
+      <button class="btns__btn">Start</button>
+      <button class="btns__btn" disabled>Reset</button>
+    </div>
+  </main>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>

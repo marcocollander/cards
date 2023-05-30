@@ -1,0 +1,60 @@
+.content {
+  margin-top: 50px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 200px;
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  grid-template-rows: 9fr;
+
+  &__card {
+    width: 100px;
+    justify-self: center;
+    align-self: center;
+    border-radius: 5px;
+  }
+}
+
+.rotate {
+  animation: rotate 1s linear;
+}
+
+.rotate-one {
+  animation: rotate-one 1s linear;
+}
+
+.btns {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__btn {
+    width: 100px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-align: center;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes rotate-one {
+  from {
+    transform: rotateY(0);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
