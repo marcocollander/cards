@@ -1,0 +1,25 @@
+.form {
+  display: table;
+  color: #fff;
+  font-size: 1.6rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  &__fieldset {
+    padding: 5px;
+  }
+
+  &__field {
+    width: 50%;
+    display: table-row;
+    margin-top: 20px;
+  }
+}
+
+label,
+input {
+  display: table-cell;
+}
+
+input {
+  width: 95%;
+  padding: 3px;
+}

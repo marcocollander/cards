@@ -28,6 +28,28 @@
     </button>
   </header>
   <main class="content">
+
+    <form class="form" action="/" class="form">
+      <fieldset class="form__fieldset">
+        <legend class="form__legend">Wyniki</legend>
+        <div class="form__field">
+          <label for="numberOfAttemps">Ilość prób: </label>
+          <input type="text" id="numberOfAttemps" name="numberOfAttemps">
+        </div>
+
+        <div class="form__field">
+          <label for="numberOfHits">Ilość trafień</label>
+          <input type="text" id="numberOfAttemps" name="numberOfHits">
+        </div>
+
+        <div class="form__field">
+          <input type="text" id="percentageResult" name="percentageResult">
+          <label for="percentageResult"> % trafień</label>
+        </div>
+      </fieldset>
+    </form>
+
+
     <div class="wrapper">
       <img class="wrapper__card rotate" src="images/dama-karo.png" alt="dama-karo">
       <img class="wrapper__card rotate" src="images/dama-pik.png" alt="dama-karo">
@@ -38,7 +60,19 @@
       <button class="btns__btn">Start</button>
       <button class="btns__btn">Reset</button>
     </div>
+
   </main>
+  <footer class="footer">
+    <p class="footer__description">
+      The game of three cards
+    </p>
+    <p class="footer__description">
+      &copy; 2023 Zenon Marek Raubuć.
+    </p>
+    <p class="footer__description">
+      All rights reserved.
+    </p>
+  </footer>
   <script src="./js/app.js"></script>
 </body>
 
