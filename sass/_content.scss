@@ -2,6 +2,16 @@
   margin-top: 10px;
 }
 
+.hit {
+  &__message {
+    margin-top: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+}
+
 .wrapper {
   margin-top: 50px;
   display: flex;

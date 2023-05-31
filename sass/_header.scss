@@ -75,9 +75,11 @@
 }
 @media (min-width: 992px) {
   .header {
+    height: 15vh;
     &__logo {
       width: 100px;
       height: 100px;
+      padding: 20px;
     }
 
     &__heading {
