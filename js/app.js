@@ -35,11 +35,7 @@ const message = getSelector('.hit__message');
 btnStart.addEventListener('click', function () {
   clickCounter = 0;
   message.innerHTML = '';
-  console.log(
-    `Ilość prób: ${++numberOfAttempts} 
-Ilość trafień: ${numberOfHits} 
-To jest: ${((numberOfHits / numberOfAttempts) * 100).toFixed(0)}%`
-  );
+  ++numberOfAttempts;
 
   inputNumberOfAttempts.value = `${numberOfAttempts}`;
   inputNumberOfHits.value = `${numberOfHits} `;
@@ -86,7 +82,6 @@ referenceDamaKaro.addEventListener('click', () => {
   btnStart.disabled = false;
   if (cards[i] == damaPik && clickCounter == 1) {
     numberOfHits++;
-    console.log(`\nHurra, trafiłeś`);
     message.innerHTML = 'Hurra, trafiłeś!';
   }
   referenceDamaKaro.setAttribute('src', cards[i]);
@@ -99,7 +94,6 @@ referenceDamaPik.addEventListener('click', () => {
   btnStart.disabled = false;
   if (cards[j] == damaPik && clickCounter == 1) {
     numberOfHits++;
-    console.log(`\nHurra, trafiłeś`);
     message.innerHTML = 'Hurra, trafiłeś!';
   }
   referenceDamaPik.setAttribute('src', cards[j]);
@@ -112,7 +106,6 @@ referenceDamaKier.addEventListener('click', () => {
   btnStart.disabled = false;
   if (cards[k] == damaPik && clickCounter == 1) {
     numberOfHits++;
-    console.log(`\nHurra, trafiłeś`);
     message.innerHTML = 'Hurra, trafiłeś!';
   }
   referenceDamaKier.setAttribute('src', cards[k]);
