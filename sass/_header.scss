@@ -48,7 +48,7 @@
   }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 412px) {
   .header {
     &__logo {
       width: 60px;
@@ -60,6 +60,7 @@
     }
   }
 }
+
 @media (min-width: 768px) {
   .header {
     &__logo {
