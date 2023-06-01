@@ -27,7 +27,7 @@ let [i, j, k, index, numberOfHits, clickCounter, numberOfAttempts] = [
   0, 1, 2, 0, 0, 0, 0,
 ];
 
-const inputNumberOfAttempts = getSelector('#numberOfAttemps');
+const inputNumberOfAttempts = getSelector('#numberOfAttempts');
 const inputNumberOfHits = getSelector('#numberOfHits');
 const inputPercentageResult = getSelector('#percentageResult');
 const message = getSelector('.hit__message');
