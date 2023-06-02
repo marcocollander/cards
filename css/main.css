@@ -29,6 +29,7 @@
   border-radius: 50%;
   align-self: center;
   justify-self: center;
+  filter: drop-shadow(10px 0 0 red) invert(80%);
 }
 .header__heading {
   align-self: center;
