@@ -12,7 +12,9 @@
 <body>
   <header class="header">
     <img class="header__logo" src="./images/logo.jpg" alt="logo">
+
     <h1 class="header__heading">Gra w trzy karty</h1>
+
     <nav class="menu">
       <ul class="menu__list">
         <li class="menu__item"><a href="/" class="menu__link">Strona domowa</a></li>
@@ -21,35 +23,40 @@
         <li class="menu__item"><a href="#" class="menu__link">Kontakt</a></li>
       </ul>
     </nav>
+
     <button class="hamburger">
       <span class="hamburger__item"></span>
       <span class="hamburger__item"></span>
       <span class="hamburger__item"></span>
     </button>
+
   </header>
   <main class="content">
 
-    <form class="form" action="/" class="form">
+    <form class="form" action="/">
       <fieldset class="form__fieldset">
         <legend class="form__legend">Wyniki</legend>
         <div class="form__field">
-          <label for="numberOfAttemps">Ilość prób: </label>
-          <input type="text" id="numberOfAttemps" name="numberOfAttemps">
+          <label for="numberOfHits">Ilość trafień: </label>
+          <input type="text" id="numberOfHits" name="numberOfHits">
         </div>
 
         <div class="form__field">
-          <label for="numberOfHits">Ilość trafień</label>
-          <input type="text" id="numberOfAttemps" name="numberOfHits">
+          <label for="numberOfAttempts">Ilość prób: </label>
+          <input type="text" id="numberOfAttempts" name="numberOfAttempts" value="">
         </div>
 
+
         <div class="form__field">
+          <label for="percentageResult"> % trafień: </label>
           <input type="text" id="percentageResult" name="percentageResult">
-          <label for="percentageResult"> % trafień</label>
         </div>
       </fieldset>
     </form>
 
-
+    <div class="hit">
+      <p class="hit__message"></p>
+    </div>
     <div class="wrapper">
       <img class="wrapper__card rotate" src="assets/dama-karo.jpg" alt="dama-karo">
       <img class="wrapper__card rotate" src="assets/dama-pik.jpg" alt="dama-karo">

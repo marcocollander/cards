@@ -9,13 +9,14 @@
 :root {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  height: 200vh;
   background-color: #666;
 }
 
 .header {
+  position: fixed;
+  top: 0;
   width: 100%;
-  height: 10vh;
+  height: 15vh;
   display: grid;
   grid-template-columns: 2fr 5fr 2fr;
   grid-template-rows: 9fr;
@@ -42,11 +43,11 @@
 }
 
 .hamburger {
+  position: absolute;
   width: 30px;
   height: 40px;
-  position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 5%;
+  top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -79,9 +80,13 @@
   }
 }
 @media (min-width: 992px) {
+  .header {
+    height: 15vh;
+  }
   .header__logo {
     width: 100px;
     height: 100px;
+    padding: 20px;
   }
   .header__heading {
     font-size: 3rem;
@@ -107,6 +112,7 @@
 }
 .form {
   display: table;
+  margin: 0 auto;
   color: #fff;
   font-size: 1.5rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -123,6 +129,7 @@
 label,
 input {
   display: table-cell;
+  text-align: center;
 }
 
 input {
@@ -131,7 +138,16 @@ input {
 }
 
 .content {
-  margin-top: 10px;
+  margin-top: 20vh;
+  height: 100vh;
+}
+
+.hit__message {
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.6rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .wrapper {
@@ -227,10 +243,6 @@ input {
 .footer {
   height: 15vh;
   padding: 10px;
-  position: fixed;
-  bottom: -10px;
-  right: 0;
-  left: 0;
   font-size: 1.3rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #000;
@@ -238,4 +250,6 @@ input {
 .footer__description {
   color: #fff;
   text-align: center;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

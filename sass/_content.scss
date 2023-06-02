@@ -1,5 +1,16 @@
 .content {
-  margin-top: 10px;
+  margin-top: 20vh;
+  height: 100vh;
+}
+
+.hit {
+  &__message {
+    margin-top: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
 }
 
 .wrapper {
