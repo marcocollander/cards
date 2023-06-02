@@ -24,8 +24,8 @@
   color: #fff;
 }
 .header__logo {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   align-self: center;
   justify-self: center;
@@ -63,8 +63,8 @@
 
 @media (min-width: 412px) {
   .header__logo {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
   }
   .header__heading {
     font-size: 2.2rem;
@@ -76,7 +76,9 @@
     height: 80px;
   }
   .header__heading {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    word-spacing: 4px;
   }
 }
 @media (min-width: 992px) {
@@ -103,11 +105,13 @@
 }
 @media (min-width: 1400px) {
   .header__logo {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
   }
   .header__heading {
     font-size: 4rem;
+    letter-spacing: 3px;
+    word-spacing: 6px;
   }
 }
 .form {
@@ -250,6 +254,4 @@ input {
 .footer__description {
   color: #fff;
   text-align: center;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
