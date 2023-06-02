@@ -27,6 +27,29 @@ let [i, j, k, index, numberOfHits, clickCounter, numberOfAttempts] = [
   0, 1, 2, 0, 0, 0, 0,
 ];
 
+const hamburger = getSelector('.hamburger');
+const hamburgerItems = getSelectors('.hamburger__item');
+const menu = getSelector('.menu');
+
+function addListener(selector, handler) {
+  selector.addEventListener('click', handler)
+}
+
+addListener(
+  hamburger, () => {
+    menu.classList.toggle('hidden');
+    hamburgerItems[0].classList.toggle('rotate-hamburger');
+    hamburgerItems[1].classList.toggle('hidden');
+    hamburgerItems[2].classList.toggle('reverse-rotate-hamburger');
+  }
+)
+
+const menuItem = getSelector('.menu__item:nth-of-type(2)');
+const rules = getSelector('.rules');
+addListener(menuItem, () => {
+  rules.classList.toggle('hidden')
+})
+
 const inputNumberOfAttempts = getSelector('#numberOfAttempts');
 const inputNumberOfHits = getSelector('#numberOfHits');
 const inputPercentageResult = getSelector('#percentageResult');
