@@ -2,11 +2,11 @@ const btns = document.querySelectorAll('.btns__btn');
 const [btnStart, btnReset] = btns;
 
 const cards = [
-  'images/dama-karo.png',
-  'images/dama-pik.png',
-  'images/dama-kier.png'
+  'assets/dama-karo.jpg',
+  'assets/dama-pik.jpg',
+  'assets/dama-kier.jpg'
 ]
-const card_back = 'images/back.png';
+const card_back = 'assets/back.jpg';
 
 const [damaKaro, damaPik, damaKier] = cards
 
