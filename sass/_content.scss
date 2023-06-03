@@ -45,7 +45,9 @@
   &__btn {
     margin-top: 40px;
     padding: 7px 15px;
+    border-radius: 15px;
     letter-spacing: 1px;
+    font-size: 1.8rem;
   }
 }
 
@@ -68,6 +70,18 @@
   }
 }
 
+@media (min-width: 400px) {
+  .content {
+    margin-top: 15vh;
+  }
+  .wrapper {
+    justify-content: center;
+    &__card {
+      width: 120px;
+    }
+  }
+}
+
 @media (min-width: 576px) {
   .wrapper {
     justify-content: center;
@@ -82,7 +96,6 @@
       padding: 10px 25px;
       border-radius: 5px;
       letter-spacing: 2px;
-      font-size: 1.6rem;
     }
   }
 }
@@ -91,6 +104,16 @@
     &__card {
       width: 160px;
       border-radius: 20px;
+    }
+  }
+
+  .btns {
+    &__btn {
+      padding: 10px 25px;
+      border-radius: 5px;
+      border-radius: 20px;
+      letter-spacing: 2px;
+      font-size: 2.2rem;
     }
   }
 }
@@ -103,12 +126,6 @@
   }
 }
 @media (min-width: 1200px) {
-  .wrapper {
-    &__card {
-      width: 240px;
-    }
-  }
-
   .btns {
     &__btn {
       padding: 15px 35px;
@@ -120,7 +137,7 @@
 @media (min-width: 1400px) {
   .wrapper {
     &__card {
-      width: 300px;
+      width: 240px;
     }
   }
 }
