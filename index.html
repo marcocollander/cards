@@ -17,14 +17,14 @@
 
     <nav class="menu hidden">
       <ul class="menu__list">
-        <li class="menu__item"><a href="/cards" class="menu__link">Strona domowa</a></li>
+        <li class="menu__item"><a href="/" class="menu__link">Strona domowa</a></li>
         <li class="menu__item"><a href="#" class="menu__link">Zasady gry</a></li>
         <p class="rules hidden">
           Grę zaczynamy od kliknięcia w przycisk start. Karty się odwrócą.
           Należy przez kliknięcie w kartę za pierwszym razem odkryć damę pik.
         </p>
-        <li class="menu__item"><a href="#" class="menu__link">Logowanie</a></li>
-        <li class="menu__item"><a href="#" class="menu__link">Rejestracja</a></li>
+        <li class="menu__item"><a href="#form-structor" class="menu__link">Logowanie</a></li>
+        <li class="menu__item"><a href="#form-structor" class="menu__link">Rejestracja</a></li>
       </ul>
     </nav>
 
@@ -70,6 +70,28 @@
       <button class="btns__btn">Start</button>
       <button class="btns__btn">Reset</button>
     </div>
+
+    <form class="form-structor" action="/" id="form-structor">
+      <div class="signup">
+        <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+        <div class="form-holder">
+          <input type="text" class="input" placeholder="Name" />
+          <input type="email" class="input" placeholder="Email" />
+          <input type="password" class="input" placeholder="Password" />
+        </div>
+        <button class="submit-btn">Sign up</button>
+      </div>
+      <div class="login slide-up">
+        <div class="center">
+          <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+          <div class="form-holder">
+            <input type="email" class="input" placeholder="Email" />
+            <input type="password" class="input" placeholder="Password" />
+          </div>
+          <button class="submit-btn">Log in</button>
+        </div>
+      </div>
+    </form>
 
   </main>
   <footer class="footer">
