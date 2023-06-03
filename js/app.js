@@ -66,7 +66,9 @@ btnStart.addEventListener('click', function () {
     (numberOfHits / numberOfAttempts) *
     100
   ).toFixed(0)}`;
+
   btnStart.disabled = true;
+  btnReset.disabled = false;
   images.forEach((image) => {
     image.classList.toggle('rotate');
     image.classList.toggle('rotate-one');
@@ -91,14 +93,25 @@ btnStart.addEventListener('click', function () {
 });
 
 btnReset.addEventListener('click', () => {
-  btnStart.disabled = false;
-  btnReset.disabled = true;
-  images.forEach((image, i) => {
-    image.setAttribute('src', cards[i]);
-    image.classList.toggle('rotate');
-    image.classList.toggle('rotate-one');
-  });
+  let ok = confirm('Czy chcesz zresetować grę?')
+  console.log(ok);
+  if (ok) {
+    btnStart.disabled = false;
+    btnReset.disabled = true;
+    images.forEach((image, i) => {
+      image.setAttribute('src', cards[i]);
+      image.classList.toggle('rotate');
+      image.classList.toggle('rotate-one');
+    })
+    clickCounter = 0;
+    numberOfAttempts = 0;
+    inputNumberOfAttempts.value = 0;
+    inputNumberOfHits.value = 0;
+    inputPercentageResult.value = 0
+  }
 });
+
+
 
 referenceDamaKaro.addEventListener('click', () => {
   clickCounter++;
