@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/marcocollander/cards#readme",
   "devDependencies": {
+    "prettier": "2.8.8",
     "sass": "^1.62.1"
   }
 }

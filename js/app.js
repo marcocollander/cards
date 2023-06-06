@@ -31,6 +31,18 @@ const hamburger = getSelector('.hamburger');
 const hamburgerItems = getSelectors('.hamburger__item');
 const menu = getSelector('.menu');
 
+window.onscroll = () => {
+  const header = getSelector('.header');
+  // header.classList.add('hidden')
+}
+
+window.onscroll
+
+window.onmousedown = () => {
+  const header = getSelector('.header');
+  header.classList.remove('hidden')
+}
+
 function addListener(selector, handler) {
   selector.addEventListener('click', handler)
 }
@@ -43,12 +55,6 @@ addListener(
     hamburgerItems[2].classList.toggle('reverse-rotate-hamburger');
   }
 )
-
-const menuItem = getSelector('.menu__item:nth-of-type(2)');
-const rules = getSelector('.rules');
-addListener(menuItem, () => {
-  rules.classList.toggle('hidden')
-})
 
 const inputNumberOfAttempts = getSelector('#numberOfAttempts');
 const inputNumberOfHits = getSelector('#numberOfHits');
@@ -116,7 +122,7 @@ btnReset.addEventListener('click', () => {
 referenceDamaKaro.addEventListener('click', () => {
   clickCounter++;
   btnStart.disabled = false;
-  if (cards[i] == damaPik && clickCounter == 1) {
+  if (cards[i] === damaPik && clickCounter === 1) {
     numberOfHits++;
     message.innerHTML = 'Hurra, trafiłeś!';
   }
@@ -128,7 +134,7 @@ referenceDamaKaro.addEventListener('click', () => {
 referenceDamaPik.addEventListener('click', () => {
   clickCounter++;
   btnStart.disabled = false;
-  if (cards[j] == damaPik && clickCounter == 1) {
+  if (cards[j] === damaPik && clickCounter === 1) {
     numberOfHits++;
     message.innerHTML = 'Hurra, trafiłeś!';
   }
@@ -140,7 +146,7 @@ referenceDamaPik.addEventListener('click', () => {
 referenceDamaKier.addEventListener('click', () => {
   clickCounter++;
   btnStart.disabled = false;
-  if (cards[k] == damaPik && clickCounter == 1) {
+  if (cards[k] === damaPik && clickCounter === 1) {
     numberOfHits++;
     message.innerHTML = 'Hurra, trafiłeś!';
   }

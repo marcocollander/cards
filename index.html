@@ -1,57 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gra w trzy karty</title>
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/main.css"/>
 </head>
 
 <body>
-  <header class="header">
-    <img class="header__logo" src="./assets/logo-three.jpg" alt="logo">
+<header class="header" id="header">
+  <img class="header__logo" src="./assets/logo-three.jpg" alt="logo"/>
+  <h1 class="header__heading">Gra w trzy karty</h1>
+  <nav class="menu hidden">
+    <ul class="menu__list">
+      <li class="menu__item">
+        <a href="#game" class="menu__link">Gra w trzy karty</a>
+      </li>
+      <li class="menu__item">
+        <a href="#rules" class="menu__link">Zasady gry</a>
+      </li>
+      <li class="menu__item">
+        <a href="#form-login" class="menu__link">Logowanie</a>
+      </li>
+      <li class="menu__item">
+        <a href="#form-signup" class="menu__link">Rejestracja</a>
+      </li>
+    </ul>
+  </nav>
+  <button class="hamburger">
+    <span class="hamburger__item"></span>
+    <span class="hamburger__item"></span>
+    <span class="hamburger__item"></span>
+  </button>
+</header>
 
-    <h1 class="header__heading">Gra w trzy karty</h1>
-
-    <nav class="menu hidden">
-      <ul class="menu__list">
-        <li class="menu__item"><a href="/" class="menu__link">Strona domowa</a></li>
-        <li class="menu__item"><a href="#" class="menu__link">Zasady gry</a></li>
-        <p class="rules hidden">
-          Grę zaczynamy od kliknięcia w przycisk start. Karty się odwrócą.
-          Należy przez kliknięcie w kartę za pierwszym razem odkryć damę pik.
-        </p>
-        <li class="menu__item"><a href="#form-structor" class="menu__link">Logowanie</a></li>
-        <li class="menu__item"><a href="#form-structor" class="menu__link">Rejestracja</a></li>
-      </ul>
-    </nav>
-
-    <button class="hamburger">
-      <span class="hamburger__item"></span>
-      <span class="hamburger__item"></span>
-      <span class="hamburger__item"></span>
-    </button>
-
-  </header>
-  <main class="content">
-
+<main class="content" id="content">
+  <section class="game" id="game">
     <form class="form" action="/">
       <fieldset class="form__fieldset">
         <legend class="form__legend">Wyniki</legend>
         <div class="form__field">
-          <label class="form__label" for="numberOfHits">Ilość trafień: </label>
-          <input class="form__input" type="text" id="numberOfHits" name="numberOfHits">
+          <label class="form__label" for="numberOfHits"
+          >Ilość trafień:
+          </label>
+          <input
+            class="form__input"
+            type="text"
+            id="numberOfHits"
+            name="numberOfHits"
+          />
         </div>
-
         <div class="form__field">
-          <label class="form__label" for="numberOfAttempts">Ilość prób: </label>
-          <input class="form__input" type="text" id="numberOfAttempts" name="numberOfAttempts" value="">
+          <label class="form__label" for="numberOfAttempts"
+          >Ilość prób:
+          </label>
+          <input
+            class="form__input"
+            type="text"
+            id="numberOfAttempts"
+            name="numberOfAttempts"
+            value=""
+          />
         </div>
         <div class="form__field">
-          <label class="form__label" for="percentageResult"> % trafień: </label>
-          <input class="form__input" type="text" id="percentageResult" name="percentageResult">
+          <label class="form__label" for="percentageResult">
+            % trafień:
+          </label>
+          <input
+            class="form__input"
+            type="text"
+            id="percentageResult"
+            name="percentageResult"
+          />
         </div>
         <button class="form__button" type="submit">Wyślij</button>
       </fieldset>
@@ -60,52 +81,83 @@
     <div class="hit">
       <p class="hit__message"></p>
     </div>
+
     <div class="wrapper">
-      <img class="wrapper__card rotate" src="assets/dama-karo.jpg" alt="dama-karo">
-      <img class="wrapper__card rotate" src="assets/dama-pik.jpg" alt="dama-karo">
-      <img class="wrapper__card rotate" src="assets/dama-kier.jpg" alt="dama-karo">
+      <img
+        class="wrapper__card rotate"
+        src="./assets/dama-karo.jpg"
+        alt="dama-karo"
+      />
+      <img
+        class="wrapper__card rotate"
+        src="./assets/dama-pik.jpg"
+        alt="dama-karo"
+      />
+      <img
+        class="wrapper__card rotate"
+        src="./assets/dama-kier.jpg"
+        alt="dama-karo"
+      />
     </div>
 
     <div class="btns">
       <button class="btns__btn">Start</button>
       <button class="btns__btn">Reset</button>
     </div>
-
-    <form class="form-structor" action="/" id="form-structor">
-      <div class="signup">
-        <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
-        <div class="form-holder">
-          <input type="text" class="input" placeholder="Name" />
-          <input type="email" class="input" placeholder="Email" />
-          <input type="password" class="input" placeholder="Password" />
+  </section>
+  <section class="login-signup">
+    <h2 class="login-signup__heading">Logowanie/Rejestracja</h2>
+    <form class="form login" action="/" id="form-login">
+      <fieldset class="login-signup__fields">
+        <legend>Zaloguj</legend>
+        <div class="login__email">
+          <label for="email">Email: </label>
+          <input type="email" class="input" id="email"/>
         </div>
-        <button class="submit-btn">Sign up</button>
-      </div>
-      <div class="login slide-up">
-        <div class="center">
-          <h2 class="form-title" id="login"><span>or</span>Log in</h2>
-          <div class="form-holder">
-            <input type="email" class="input" placeholder="Email" />
-            <input type="password" class="input" placeholder="Password" />
-          </div>
-          <button class="submit-btn">Log in</button>
+        <div class="login__password">
+          <label for="password">Hasło: </label>
+          <input type="password" class="input" id="password"/>
         </div>
-      </div>
+      </fieldset>
+      <button class="submit-btn">Zaloguj się</button>
     </form>
 
-  </main>
-  <footer class="footer">
-    <p class="footer__description">
-      The game of three cards
+    <form class="form signup" action="/" id="form-signup">
+      <fieldset>
+        <legend>Zarejestruj się</legend>
+        <div class="login__name">
+          <label for="name">Imię:</label>
+          <input type="text" class="input" id="name"/>
+        </div>
+        <div class="login__email">
+          <label for="signup-email">Email: </label>
+          <input type="email" class="input" id="signup-email"/>
+        </div>
+        <div class="login__password">
+          <label for="signup-password">Hasło: </label>
+          <input type="password" class="input" id="signup-password"/>
+        </div>
+      </fieldset>
+      <button class="submit-btn">Zarejestruj się</button>
+    </form>
+  </section>
+  <section class="rules" id="rules">
+    <h2 class="rules__heading">Zasady gry</h2>
+    <p class="rules__description">
+      Grę zaczynamy od kliknięcia przycisku start. Karty się odwrócą. Należy
+      przez kliknięcie karty za pierwszym razem odkryć damę pik. Wyniki są
+      zapisywane w formularzu. Aby zachować swoje rezultaty, zaloguj się.
+      Będziemy zapisywali Twój najlepszy wynik.
     </p>
-    <p class="footer__description">
-      &copy; 2023 Zenon Marek Raubuć.
-    </p>
-    <p class="footer__description">
-      All rights reserved.
-    </p>
-  </footer>
-  <script src="./js/app.js"></script>
+  </section>
+</main>
+<footer class="footer">
+  <p class="footer__description">The game of three cards</p>
+  <p class="footer__description">
+    Copyright &copy; 2023 Zenon Marek Raubuć.
+  </p>
+  <p class="footer__description">All rights reserved.</p>
+</footer>
+<script src="./js/app.js"></script>
 </body>
-
 </html>

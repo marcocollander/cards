@@ -1,45 +1,32 @@
 .header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 3fr 6fr 2fr;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: #333;
   color: #fff;
 
   &__logo {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     padding: 5px;
+    margin-right: 40px;
     border-radius: 50%;
     align-self: center;
-    justify-self: center;
-    filter: drop-shadow(10px 0 0 red) invert(80%);
+    filter: drop-shadow(0 0 0 red) invert(80%);
   }
 
   &__heading {
+    margin-right: 80px;
     align-self: center;
     justify-self: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: normal;
     font-size: 1.8rem;
-    letter-spacing: 1px;
-    word-spacing: 2px;
   }
 }
 
-.rules {
-  margin-top: 20px;
-  width: 150px;
-  text-align: justify;
-  font-size: 1.4rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .menu {
-  position: absolute;
+  position: fixed;
   padding: 20px;
   top: 65px;
   right: 2px;
@@ -53,6 +40,7 @@
   &__item {
     margin-top: 30px;
     text-align: center;
+
     &:nth-of-type(1) {
       margin-top: 0;
     }
@@ -73,11 +61,11 @@
 }
 
 .hamburger {
-  position: absolute;
+  position: fixed;
   width: 30px;
   height: 40px;
-  right: 4%;
-  top: 15px;
+  right: 15px;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -137,6 +125,7 @@
     }
   }
 }
+
 @media (min-width: 992px) {
   .header {
     &__logo {
@@ -149,8 +138,11 @@
     }
   }
 }
+
 @media (min-width: 1200px) {
   .header {
+    padding: 0;
+
     &__logo {
       width: 120px;
       height: 120px;
@@ -161,6 +153,7 @@
     }
   }
 }
+
 @media (min-width: 1400px) {
   .header {
     &__logo {

@@ -1,5 +1,9 @@
+.game {
+  height: 100vh;
+}
+
 .content {
-  margin-top: 20vh;
+  margin-top: 30px;
 }
 
 .hit {
@@ -44,11 +48,47 @@
   &__btn {
     margin-top: 40px;
     padding: 7px 15px;
+    border: none;
     border-radius: 15px;
     letter-spacing: 1px;
     font-size: 1.8rem;
   }
 }
+
+.login-signup {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+
+  &__fileds {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  &__heading {
+    font-size: 2.5rem;
+  }
+}
+
+.rules {
+  font-size: 1.4rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__description {
+    padding: 20px;
+    text-align: justify;
+  }
+
+}
+
 
 @keyframes rotate {
   from {
@@ -59,6 +99,7 @@
     transform: rotateY(360deg);
   }
 }
+
 @keyframes rotate-one {
   from {
     transform: rotateY(0);
@@ -70,9 +111,6 @@
 }
 
 @media (min-width: 400px) {
-  .content {
-    margin-top: 15vh;
-  }
   .wrapper {
     margin-top: 100px;
     justify-content: center;
@@ -86,6 +124,7 @@
 @media (min-width: 576px) {
   .wrapper {
     justify-content: center;
+
     &__card {
       width: 130px;
       border: 2px solid black;
@@ -100,6 +139,7 @@
     }
   }
 }
+
 @media (min-width: 768px) {
   .wrapper {
     &__card {
@@ -111,7 +151,6 @@
   .btns {
     &__btn {
       padding: 10px 25px;
-      border-radius: 5px;
       border-radius: 20px;
       letter-spacing: 2px;
       font-size: 2.2rem;
@@ -126,6 +165,7 @@
     }
   }
 }
+
 @media (min-width: 1200px) {
   .btns {
     &__btn {
@@ -135,6 +175,7 @@
     }
   }
 }
+
 @media (min-width: 1400px) {
   .wrapper {
     &__card {
