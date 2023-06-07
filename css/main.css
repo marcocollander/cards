@@ -437,9 +437,28 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
+.login-signup--hidden {
+  display: none;
+}
 .login-signup__heading {
   text-align: center;
   font-size: 2.5rem;
+}
+
+.rules {
+  font-size: 1.4rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.rules--hidden {
+  display: none;
+}
+.rules__heading {
+  text-align: center;
+}
+.rules__description {
+  max-width: 320px;
+  margin: 0 auto 50px;
+  padding: 20px;
 }
 
 .footer {
