@@ -350,19 +350,6 @@
   font-size: 1.8rem;
 }
 
-.rules {
-  font-size: 1.4rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.rules__heading {
-  text-align: center;
-}
-.rules__description {
-  max-width: 320px;
-  margin: 0 auto 50px;
-  padding: 20px;
-}
-
 @keyframes rotate {
   from {
     transform: rotateY(0);

@@ -56,23 +56,6 @@
   }
 }
 
-.rules {
-
-  font-size: 1.4rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-  &__heading {
-    text-align: center;
-  }
-
-  &__description {
-    max-width: 320px;
-    margin: 0 auto 50px;
-    padding: 20px;
-  }
-
-}
-
 
 @keyframes rotate {
   from {
