@@ -1,11 +1,12 @@
-.login {
-  height: 45vh;
+.login-signup {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-top: 50px;
+
+  &__heading {
+    text-align: center;
+    font-size: 2.5rem;
+  }
 }
 
-.signup {
-  margin-top: 50px;
-}
