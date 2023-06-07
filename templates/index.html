@@ -10,7 +10,7 @@
 
   <body>
     <header class="header" id="header">
-      <img class="header__logo" src="./assets/logo-three.jpg" alt="logo" />
+      <img class="header__logo" src="../static/assets/logo-three.jpg" alt="logo" />
       <h1 class="header__heading">Gra w trzy karty</h1>
       <nav class="menu hidden">
         <ul class="menu__list">
@@ -60,7 +60,6 @@
                 type="text"
                 id="numberOfAttempts"
                 name="numberOfAttempts"
-                value=""
               />
             </div>
             <div class="form__field">
@@ -128,15 +127,15 @@
             <legend>Zarejestruj się</legend>
             <div class="form__field">
               <label class="form__label" for="name">Imię:</label>
-              <input class="form__input" type="text" class="input" id="name" name="name" />
+              <input class="form__input" type="text" class="input" id="name" name="name" required />
             </div>
             <div class="form__field">
               <label class="form__label" for="signup-email">Email: </label>
-              <input class="form__input" type="email" id="signup-email" name="signup-email" />
+              <input class="form__input" type="email" id="signup-email" name="signup-email" required/>
             </div>
             <div class="form__field">
               <label class="form__label" for="signup-password">Hasło: </label>
-              <input class="form__input" type="password" id="signup-password" />
+              <input class="form__input" type="password" id="signup-password" name="signup-password" required/>
             </div>
             <button class="form__button">Zarejestruj się</button>
           </fieldset>
