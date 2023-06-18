@@ -1,0 +1,58 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %} Gra w trzy karty {% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
+{% endblock %}
+
+
+
+{% block content %}
+{{super()}}
+
+<header class="header" id="header">
+  <img class="header__logo" src="../static/assets/logo-three.jpg" alt="logo" />
+  <h1 class="header__heading">Gra w trzy karty</h1>
+  <nav class="menu hidden">
+    <ul class="menu__list">
+      <li class="menu__item">
+        <a href="#game" class="menu__link">Gra w trzy karty</a>
+      </li>
+      <li class="menu__item">
+        <a href="#rules" class="menu__link">Zasady gry</a>
+      </li>
+      <li class="menu__item">
+        <a href="#form-login" class="menu__link">Logowanie</a>
+      </li>
+      <li class="menu__item">
+        <a href="#form-signup" class="menu__link">Rejestracja</a>
+      </li>
+    </ul>
+  </nav>
+  <button class="hamburger">
+    <span class="hamburger__item"></span>
+    <span class="hamburger__item"></span>
+    <span class="hamburger__item"></span>
+  </button>
+</header>
+{% endblock %}
+
+{% block page_content %}
+
+{% endblock %}
+
+<footer class="footer">
+  <p class="footer__description">The game of three cards</p>
+  <p class="footer__description">
+    Copyright &copy; 2023 Zenon Marek Raubuć.
+  </p>
+  <p class="footer__description">All rights reserved.</p>
+</footer>
+
+{% block scripts %}
+{{ super() }}
+<script src="{{url_for('static, filename='js/app.js')}}"></script>
+{% endblock %}
