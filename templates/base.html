@@ -3,15 +3,15 @@
 {% block title %} Gra w trzy karty {% endblock %}
 
 {% block head %}
-{{ super() }}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
 <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
+<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
 {% endblock %}
 
 
 
 {% block content %}
-{{super()}}
 
 <header class="header" id="header">
   <img class="header__logo" src="../static/assets/logo-three.jpg" alt="logo" />
@@ -19,16 +19,19 @@
   <nav class="menu hidden">
     <ul class="menu__list">
       <li class="menu__item">
-        <a href="#game" class="menu__link">Gra w trzy karty</a>
+        <a href="/" class="menu__link">Gra w trzy karty</a>
       </li>
       <li class="menu__item">
-        <a href="#rules" class="menu__link">Zasady gry</a>
+        <a href="/rules" class="menu__link">Zasady gry</a>
       </li>
       <li class="menu__item">
-        <a href="#form-login" class="menu__link">Logowanie</a>
+        <a href="/log" class="menu__link">Logowanie</a>
       </li>
       <li class="menu__item">
-        <a href="#form-signup" class="menu__link">Rejestracja</a>
+        <a href="/reg" class="menu__link">Rejestracja</a>
+      </li>
+      <li class="menu__item">
+        <a href="/out" class="menu__link">Wyloguj</a>
       </li>
     </ul>
   </nav>
@@ -38,11 +41,12 @@
     <span class="hamburger__item"></span>
   </button>
 </header>
-{% endblock %}
 
-{% block page_content %}
+<main class="content" id="content">
+  {% block page_content %}
+  {% endblock %}
 
-{% endblock %}
+</main>
 
 <footer class="footer">
   <p class="footer__description">The game of three cards</p>
@@ -51,8 +55,11 @@
   </p>
   <p class="footer__description">All rights reserved.</p>
 </footer>
+{% endblock %}
+
+
 
 {% block scripts %}
 {{ super() }}
-<script src="{{url_for('static, filename='js/app.js')}}"></script>
+<script src="{{url_for('static', filename='js/app.js')}}"></script>
 {% endblock %}

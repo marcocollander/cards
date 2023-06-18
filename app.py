@@ -1,8 +1,6 @@
 import os
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 from flask_bootstrap import Bootstrap
-from flask_moment import Moment
-from datetime import datetime
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email
@@ -18,7 +16,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 bootstrap = Bootstrap(app)
-moment = Moment(app)
 db = SQLAlchemy(app)
 
 class Role(db.Model):
@@ -51,15 +48,15 @@ class NameForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    email = StringField("Email", validators=[Email()])
-    password = PasswordField("Hasło", validators=[DataRequired()])
+    email = StringField("Email: ", validators=[Email()])
+    password = PasswordField("Hasło: ", validators=[DataRequired()])
     submit = SubmitField("Zaloguj się")
 
 
 class RegistForm(FlaskForm):
-    name = StringField("Imię", validators=[DataRequired()])
-    email = StringField("Email", validators=[Email()])
-    password = PasswordField("Hasło", validators=[DataRequired()])
+    name = StringField("Imię: ", validators=[DataRequired()])
+    email = StringField("Email:", validators=[Email()])
+    password = PasswordField("Hasło:", validators=[DataRequired()])
     submit = SubmitField("Zarejestruj się")
 
 
@@ -75,42 +72,47 @@ def internal_server_error(e):
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['signup-email']
-        password = request.form['signup-password']
-        cursor = mysql.connection.cursor()
-        cursor.execute(
-            'INSERT INTO threecards VALUES(%s,%s,%s,%s)',
-            (id, name, email, password)
-        )
-        mysql.connection.commit()
-        cursor.close()
-        return f"Done!!"
-    
-    return render_template('index.html')
+    if session.get('known'):
+        message = f'Witaj ponownie {session.get("name")}'
+    else:
+        message = 'Możesz grać bez logowania lecz twoje wyniki nie będą zapisywane'
+    return render_template('index.html', message=message)
 
 
 @app.route("/log", methods=["GET", "POST"])
 def login():
+    message = session.get('message')
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.name.data).first()
+        user = User.query.filter_by(email=form.email.data).first()
         if user is None:
-            user = User(username=form.name.data)
-            db.session.add(user)
-            db.session.commit()
-            session["known"] = False
-        else:
+            print('Nie jesteś zrejestrowany')
+            print('Zrejestruj się')
+            session['known'] = False
+            return redirect(url_for('regist'))
+        elif (user.password == form.password.data):
             session["known"] = True
-        session["name"] = form.name.data
+            session["name"] = user.username
+            session['message'] = 'Jesteś zalogowany'
+            print(f'Witaj {user.username}')
+        else:
+            session['message'] = 'Błędne dane logowanie'
+            return redirect(url_for('login'))
+
         return redirect(url_for("index"))
     return render_template(
         "login.html",
-        form=form,
-        name=session.get("name"),
-        known=session.get("known"),
+        form=form, message=message
     )
+
+
+@app.route("/out", methods=["GET", "POST"])
+def outlogin():
+    session['known'] = False
+    session['message'] = 'Zostałeś wylogowany'
+    return redirect(url_for("login"))
+    
+
 
 
 @app.route("/reg", methods=["GET", "POST"])
@@ -119,21 +121,23 @@ def regist():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.name.data).first()
         if user is None:
-            user = User(username=form.name.data)
+            user = User(
+                username=form.name.data, email=form.email.data, password=form.password.data
+            )
             db.session.add(user)
             db.session.commit()
             session["known"] = False
         else:
             session["known"] = True
         session["name"] = form.name.data
-        return redirect(url_for("index"))
+        return redirect(url_for("login"))
     return render_template(
         "regist.html",
         form=form,
-        name=session.get("name"),
-        known=session.get("known"),
     )
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+     with app.app_context():
+        db.create_all()
+     app.run(debug=True)

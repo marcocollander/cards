@@ -299,11 +299,14 @@
 }
 .game {
   margin-top: 50px;
-  height: 100vh;
 }
 
 .content {
   margin-top: 30px;
+}
+.content__message {
+  text-align: center;
+  font-size: 2rem;
 }
 
 .hit__message {
@@ -418,18 +421,29 @@
     width: 240px;
   }
 }
-.login-signup {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-.login-signup--hidden {
-  display: none;
-}
-.login-signup__heading {
+.login {
+  margin-top: 50px;
   text-align: center;
+}
+.login__heading {
+  margin-top: 50px;
   font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+.login__form {
+  margin-top: 50px;
+}
+.login__form .form-control {
+  margin-top: 10px;
+  font-size: 1.6rem;
+}
+.login__form .btn {
+  margin-top: 20px;
+  padding: 7px 15px;
+  border: none;
+  border-radius: 15px;
+  letter-spacing: 1px;
+  font-size: 1.6rem;
 }
 
 .rules {
@@ -449,6 +463,8 @@
 }
 
 .footer {
+  position: relative;
+  bottom: -50vh;
   padding: 10px;
   font-size: 1.3rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
