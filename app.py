@@ -29,20 +29,20 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/books', methods=['POST', 'GET'])
-def create_table():
-    if request.method == 'POST':
-        table = request.form['table']
-        cursor = mysql.connection.cursor()
-        query = f'CREATE TABLE {table}('\
-                f'id INT NOT NULL PRIMARY KEY ,author VARCHAR(255), ' \
-                f'title VARCHAR(255), edition VARCHAR(255), year VARCHAR(10))'
-        cursor.execute(query)
-        mysql.connection.commit()
-        cursor.close()
-        return f"Done!!"
-
-    return render_template('books.html')
+# @app.route('/books', methods=['POST', 'GET'])
+# def create_table():
+#     if request.method == 'POST':
+#         table = request.form['table']
+#         cursor = mysql.connection.cursor()
+#         query = f'CREATE TABLE {table}('\
+#                 f'id INT NOT NULL PRIMARY KEY ,author VARCHAR(255), ' \
+#                 f'title VARCHAR(255), edition VARCHAR(255), year VARCHAR(10))'
+#         cursor.execute(query)
+#         mysql.connection.commit()
+#         cursor.close()
+#         return f"Done!!"
+#
+#     return render_template('books.html')
 
 
 if __name__ == '__main__':
