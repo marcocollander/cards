@@ -25,16 +25,16 @@ def login():
             print('Zrejestruj się')
             session['known'] = False
             return redirect(url_for('regist'))
-        elif (user.password == form.password.data):
+        elif user.password == form.password.data:
             session["known"] = True
             session["name"] = user.username
             session['message'] = 'Jesteś zalogowany'
             print(f'Witaj {user.username}')
         else:
             session['message'] = 'Błędne dane logowanie'
-            return redirect(url_for('login'))
+            return redirect(url_for('.login'))
 
-        return redirect(url_for("index"))
+        return redirect(url_for(".index"))
     return render_template(
         "login.html",
         form=form, message=message
@@ -65,8 +65,8 @@ def regist():
         else:
             session["known"] = True
         session["name"] = form.name.data
-        return redirect(url_for("login"))
+        return redirect(url_for(".login"))
     return render_template(
         "regist.html",
-        form=form,
+        form=form
     )
