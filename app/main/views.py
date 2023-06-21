@@ -52,7 +52,7 @@ def outlogin():
 
 @main.route("/reg", methods=["GET", "POST"])
 def regist():
-    form = RegistForm()
+    form = RegisterForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.name.data).first()
         if user is None:
