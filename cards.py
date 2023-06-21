@@ -1,10 +1,8 @@
 import os
 from flask import Flask, render_template, request, session, redirect, url_for, flash
-from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email
-from flask_sqlalchemy import SQLAlchemy
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
