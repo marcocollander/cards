@@ -9,7 +9,7 @@ from config import config
 
 bootstrap = Bootstrap()
 mail = Mail()
-moment = Momment()
+moment = Moment()
 db = SQLAlchemy()
 
 
