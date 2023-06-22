@@ -16,28 +16,21 @@ def index():
 
 @main.route("/log", methods=["GET", "POST"])
 def login():
-    message = session.get('message')
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user is None:
-            print('Nie jesteś zrejestrowany')
-            print('Zrejestruj się')
             session['known'] = False
-            return redirect(url_for('regist'))
-        elif user.password == form.password.data:
+            return redirect(url_for('.regist'))
+        elif user.verify_password(form.password.data):
             session["known"] = True
             session["name"] = user.username
-            session['message'] = 'Jesteś zalogowany'
-            print(f'Witaj {user.username}')
         else:
-            session['message'] = 'Błędne dane logowanie'
             return redirect(url_for('.login'))
-
         return redirect(url_for(".index"))
     return render_template(
         "login.html",
-        form=form, message=message
+        form=form, name=session.get('name')
     )
 
 
@@ -45,7 +38,7 @@ def login():
 def outlogin():
     session['known'] = False
     session['message'] = 'Zostałeś wylogowany'
-    return redirect(url_for("login"))
+    return redirect(url_for(".login"))
     
 
 

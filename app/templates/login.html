@@ -4,7 +4,10 @@
 
 {% block page_content %}
 <section class="login">
-  <p class="login__message">{{message}}</p>
+
+  <p class="login__message">
+    Witaj {% if name %}{{name}}{% else %}nieznajomy{% endif %}
+  </p>
   <h1 class="login__heading">Logowanie</h1>
   <div class="login__form">
     {{ wtf.quick_form(form) }}
