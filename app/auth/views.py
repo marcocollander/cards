@@ -1,55 +1,44 @@
-from datetime import datetime
-from flask import render_template, session, redirect, url_for
-from .forms import LoginForm, RegisterForm
+from flask import render_template, redirect, request, url_for, flash
+from flask_login import login_user, logout_user, login_required, current_user
+from . import auth
 from .. import db
 from ..models import User
-from . import auth
+from .forms import LoginForm, RegisterForm
 
 
-@auth.route("/log", methods=["GET", "POST"])
+@auth.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user is None:
-            session['known'] = False
-            return redirect(url_for('.register'))
-        elif user.verify_password(form.password.data):
-            session["known"] = True
-            session["name"] = user.username
-        else:
-            return redirect(url_for('.login'))
-        return redirect(url_for(".index"))
-    return render_template(
-        "auth/login.html",
-        form=form, name=session.get('name')
-    )
+        user = User.query.filter_by(email=form.email.data.lower()).first()
+        if user is not None and user.verify_password(form.password.data):
+            login_user(user, form.remember_me.data)
+            next = request.arg.get('next')
+            if next is None or not next.startswitch('/'):
+                next = url_for('main.index')
+            return redirect(next)
+        flash('Nieprawidłowy email lub hasło')
+    return render_template( "auth/login.html", form=form)
 
 
-@auth.route("/out", methods=["GET", "POST"])
-def outlogin():
-    session['known'] = False
-    session['message'] = 'Zostałeś wylogowany'
-    return redirect(url_for(".login"))
+@auth.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    flash('Zostałeś wylogowany')
+    return redirect(url_for('main.index'))
 
 
-@auth.route("/reg", methods=["GET", "POST"])
+@auth.route("/register", methods=["GET", "POST"])
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.name.data).first()
-        if user is None:
-            user = User(
-                username=form.name.data, email=form.email.data, password=form.password.data
-            )
-            db.session.add(user)
-            db.session.commit()
-            session["known"] = False
-        else:
-            session["known"] = True
-        session["name"] = form.name.data
-        return redirect(url_for(".login"))
-    return render_template(
-        "auth/register.html",
-        form=form
-    )
+        user = User(email=form.email.data.lower(),
+                    username=form.username.data,
+                    password=form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Możesz się zalogować.')
+        return redirect(url_for('auth.login'))
+    return render_template('auth/register.html', form=form)
+    

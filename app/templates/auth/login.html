@@ -6,11 +6,12 @@
 <section class="login">
 
   <p class="login__message">
-    Witaj {% if name %}{{name}}{% else %}nieznajomy{% endif %}
   </p>
   <h1 class="login__heading">Logowanie</h1>
   <div class="login__form">
     {{ wtf.quick_form(form) }}
+    <br>
+    <p>Nowy użytkownik? <a href="{{ url_for('auth.register') }}">Click here to register</a>.</p>
   </div>
 </section>
 
