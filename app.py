@@ -18,6 +18,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 
+
 class Role(db.Model):
     __tablename__ = "roles"
     id = db.Column(db.Integer, primary_key=True)
@@ -53,7 +54,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Zaloguj się")
 
 
-class RegistForm(FlaskForm):
+class RegisterForm(FlaskForm):
     name = StringField("Imię: ", validators=[DataRequired()])
     email = StringField("Email:", validators=[Email()])
     password = PasswordField("Hasło:", validators=[DataRequired()])
@@ -61,12 +62,12 @@ class RegistForm(FlaskForm):
 
 
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_found():
     return render_template("404.html"), 404
 
 
 @app.errorhandler(500)
-def internal_server_error(e):
+def internal_server_error():
     return render_template("500.html"), 500
 
 
@@ -86,11 +87,11 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user is None:
-            print('Nie jesteś zrejestrowany')
-            print('Zrejestruj się')
+            print('Nie jesteś zarejestrowany')
+            print('Zarejestruj się')
             session['known'] = False
-            return redirect(url_for('regist'))
-        elif (user.password == form.password.data):
+            return redirect(url_for('register'))
+        elif user.password == form.password.data:
             session["known"] = True
             session["name"] = user.username
             session['message'] = 'Jesteś zalogowany'
@@ -111,13 +112,11 @@ def outlogin():
     session['known'] = False
     session['message'] = 'Zostałeś wylogowany'
     return redirect(url_for("login"))
-    
-
 
 
 @app.route("/reg", methods=["GET", "POST"])
-def regist():
-    form = RegistForm()
+def register():
+    form = RegisterForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.name.data).first()
         if user is None:
@@ -132,12 +131,12 @@ def regist():
         session["name"] = form.name.data
         return redirect(url_for("login"))
     return render_template(
-        "regist.html",
+        "register.html",
         form=form,
     )
 
 
 if __name__ == '__main__':
-     with app.app_context():
+    with app.app_context():
         db.create_all()
-     app.run(debug=True)
+    app.run(debug=True)
