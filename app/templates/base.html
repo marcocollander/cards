@@ -25,10 +25,10 @@
         <a href="/rules" class="menu__link">Zasady gry</a>
       </li>
       <li class="menu__item">
-        <a href="/log" class="menu__link">Logowanie</a>
+        <a href="{{ url_for('auth.login')}}" class="menu__link">Logowanie</a>
       </li>
       <li class="menu__item">
-        <a href="/reg" class="menu__link">Rejestracja</a>
+        <a href="{{ url_for('auth.register')}}" class="menu__link">Rejestracja</a>
       </li>
       <li class="menu__item">
         <a href="/out" class="menu__link">Wyloguj</a>
