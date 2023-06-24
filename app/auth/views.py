@@ -11,14 +11,16 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data.lower()).first()
+        print(user)
         if user is not None and user.verify_password(form.password.data):
             login_user(user, form.remember_me.data)
-            next = request.arg.get('next')
+            next = request.args.get('next')
             if next is None or not next.startswitch('/'):
                 next = url_for('main.index')
             return redirect(next)
         flash('Nieprawidłowy email lub hasło')
-    return render_template( "auth/login.html", form=form)
+        print('Nieprawidłowy email lub hasło')
+    return render_template("auth/login.html", form=form)
 
 
 @auth.route("/logout")
@@ -41,4 +43,3 @@ def register():
         flash('Możesz się zalogować.')
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', form=form)
-    

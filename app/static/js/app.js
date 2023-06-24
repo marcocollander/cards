@@ -34,29 +34,27 @@ let [i, j, k, index, numberOfHits, clickCounter, numberOfAttempts] = [
 const hamburger = getSelector(".hamburger");
 const hamburgerItems = getSelectors(".hamburger__item");
 const menu = getSelector(".menu");
-const links = getSelectors(".menu__link");
+// const links = getSelectors(".menu__link");
 
-console.log(links)
+// console.log(links);
 
-const [, rules, login, signup] = links;
-console.log(rules)
+// const [, rules, login, signup] = links;
+// console.log(rules);
 
-addListener(rules, () => {
-  const rules = getSelector('.rules');
-  rules.classList.toggle('rules--hidden');
-})
+// addListener(rules, () => {
+//   const rules = getSelector(".rules");
+//   rules.classList.toggle("rules--hidden");
+// });
 
-addListener(login, () => {
-  const login = getSelector('.login-signup');
-  login.classList.toggle('login-signup--hidden');
-})
+// addListener(login, () => {
+//   const login = getSelector(".login-signup");
+//   login.classList.toggle("login-signup--hidden");
+// });
 
-addListener(signup, () => {
-  const login = getSelector('.login-signup');
-  login.classList.toggle('login-signup--hidden');
-})
-
-
+// addListener(signup, () => {
+//   const login = getSelector(".login-signup");
+//   login.classList.toggle("login-signup--hidden");
+// });
 
 addListener(hamburger, () => {
   menu.classList.toggle("hidden");

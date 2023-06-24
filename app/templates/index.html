@@ -2,7 +2,15 @@
 
 {% block page_content %}
 
-<p class="content__message">{{message}}</p>
+
+<p class="content__message">
+  Witaj,
+  {% if current_user.is_authenticated %}
+  {{current_user.username}}
+  {% else %}
+  nieznajomy
+  {% endif %}
+</p>
 <section class="game" id="game">
   <form class="form" action="/">
     <fieldset class="form__fieldset">
@@ -10,18 +18,18 @@
       <div class="form__field">
         <label class="form__label" for="numberOfHits">Ilość trafień:
         </label>
-        <input class="form__input" type="text" id="numberOfHits" name="numberOfHits" />
+        <input class="form__input" type="text" id="numberOfHits" name="numberOfHits"/>
       </div>
       <div class="form__field">
         <label class="form__label" for="numberOfAttempts">Ilość prób:
         </label>
-        <input class="form__input" type="text" id="numberOfAttempts" name="numberOfAttempts" />
+        <input class="form__input" type="text" id="numberOfAttempts" name="numberOfAttempts"/>
       </div>
       <div class="form__field">
         <label class="form__label" for="percentageResult">
           % trafień:
         </label>
-        <input class="form__input" type="text" id="percentageResult" name="percentageResult" />
+        <input class="form__input" type="text" id="percentageResult" name="percentageResult"/>
       </div>
       <button class="form__button" type="submit">Wyślij</button>
     </fieldset>
@@ -32,9 +40,9 @@
   </div>
 
   <div class="wrapper">
-    <img class="wrapper__card rotate" src="../static/assets/dama-karo.jpg" alt="dama-karo" />
-    <img class="wrapper__card rotate" src="../static/assets/dama-pik.jpg" alt="dama-karo" />
-    <img class="wrapper__card rotate" src="../static/assets/dama-kier.jpg" alt="dama-karo" />
+    <img class="wrapper__card rotate" src="../static/assets/dama-karo.jpg" alt="dama-karo"/>
+    <img class="wrapper__card rotate" src="../static/assets/dama-pik.jpg" alt="dama-karo"/>
+    <img class="wrapper__card rotate" src="../static/assets/dama-kier.jpg" alt="dama-karo"/>
   </div>
 
   <div class="btns">
@@ -42,5 +50,5 @@
     <button class="btns__btn">Reset</button>
   </div>
 </section>
-</main>
+
 {% endblock %}

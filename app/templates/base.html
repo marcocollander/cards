@@ -3,6 +3,7 @@
 {% block title %} Gra w trzy karty {% endblock %}
 
 {% block head %}
+{{ super ()}}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
 <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
@@ -10,10 +11,9 @@
 {% endblock %}
 
 
-
 {% block content %}
 <header class="header" id="header">
-  <img class="header__logo" src="../static/assets/logo-three.jpg" alt="logo" />
+  <img class="header__logo" src="../static/assets/logo-three.jpg" alt="logo"/>
   <h1 class="header__heading">Gra w trzy karty</h1>
   <nav class="menu hidden">
     <ul class="menu__list">
@@ -25,11 +25,13 @@
       </li>
       {% if current_user.is_authenticated %}
       <li class="menu__item">
-        <a href="{{ url_for('auth.logout')}}" class="menu__link">Wylogowanie</a>
+        <a href="{{url_for('auth.logout')}}" class="menu__link">Wylogowanie</a>
       </li>
+      {% else %}
       <li class="menu__item">
         <a href="{{url_for('auth.login')}}" class=" menu__link">Logowanie</a>
       </li>
+      {% endif %}
     </ul>
   </nav>
   <button class="hamburger">
@@ -41,7 +43,7 @@
 
 
 <main class="content" id="content">
-  <!-- {% block page_content %}
+  {% block page_content %}
   <div class="container">
     {% for message in get_flashed_messages() %}
     <div class="alert alert-warning">
@@ -50,7 +52,7 @@
     </div>
     {% endfor %}
   </div>
-  {% endblock %} -->
+  {% endblock %}
 </main>
 <footer class="footer">
   <p class="footer__description">The game of three cards</p>
@@ -60,8 +62,6 @@
   <p class="footer__description">All rights reserved.</p>
 </footer>
 {% endblock %}
-
-
 
 
 {% block scripts %}
