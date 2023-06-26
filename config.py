@@ -10,8 +10,10 @@ class Config:
     MAIL_PORT = int(os.environ.get('MAIL_PORT', '587'))
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true').lower() in \
                    ['true', 'on', '1']
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')  # m.raubuc@gmail.com
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')  # tmgukjsoebqmjfdq
+    # MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    # MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_USERNAME = 'm.raubuc@gmail.com'
+    MAIL_PASSWORD = 'tmgukjsoebqmjfdq'
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
     FLASKY_MAIL_SENDER = 'Flasky Admin <flasky@example.com>'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')

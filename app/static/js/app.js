@@ -34,27 +34,7 @@ let [i, j, k, index, numberOfHits, clickCounter, numberOfAttempts] = [
 const hamburger = getSelector(".hamburger");
 const hamburgerItems = getSelectors(".hamburger__item");
 const menu = getSelector(".menu");
-// const links = getSelectors(".menu__link");
 
-// console.log(links);
-
-// const [, rules, login, signup] = links;
-// console.log(rules);
-
-// addListener(rules, () => {
-//   const rules = getSelector(".rules");
-//   rules.classList.toggle("rules--hidden");
-// });
-
-// addListener(login, () => {
-//   const login = getSelector(".login-signup");
-//   login.classList.toggle("login-signup--hidden");
-// });
-
-// addListener(signup, () => {
-//   const login = getSelector(".login-signup");
-//   login.classList.toggle("login-signup--hidden");
-// });
 
 addListener(hamburger, () => {
   menu.classList.toggle("hidden");
@@ -63,9 +43,9 @@ addListener(hamburger, () => {
   hamburgerItems[2].classList.toggle("reverse-rotate-hamburger");
 });
 
-const inputNumberOfAttempts = getSelector("#numberOfAttempts");
-const inputNumberOfHits = getSelector("#numberOfHits");
-const inputPercentageResult = getSelector("#percentageResult");
+const inputNumberOfAttempts = getSelector("#number_of_attempts");
+const inputNumberOfHits = getSelector("#number_of_hits");
+const inputPercentageResult = getSelector("#hit_percentage");
 const message = getSelector(".hit__message");
 
 btnStart.addEventListener("click", function () {
